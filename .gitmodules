@@ -1,6 +1,6 @@
 [submodule "submodules/UniRx"]
 	path = submodules/UniRx
 	url = https://github.com/neuecc/UniRx.git
-[submodule "submodules\\LINQ-to-GameObject-for-Unity"]
-	path = submodules\\LINQ-to-GameObject-for-Unity
+[submodule "submodules/LINQ-to-GameObject-for-Unity"]
+	path = submodules/LINQ-to-GameObject-for-Unity
 	url = https://github.com/neuecc/LINQ-to-GameObject-for-Unity.git
