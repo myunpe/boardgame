@@ -29,7 +29,7 @@ namespace Framework
 		{
 			StringBuilder builder = new StringBuilder();
 			builder.AppendLine("namespace DEF {");
-			builder.AppendLine("public static class S { ");
+			builder.AppendLine("public static class Scene { ");
 
 			List<EditorBuildSettingsScene> scenes = new List<EditorBuildSettingsScene>();
 			foreach (var guid in AssetDatabase.FindAssets("t:Scene"))

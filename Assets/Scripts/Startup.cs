@@ -8,7 +8,7 @@ public class Startup : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        MYSceneManager.Instance.StartSceneAsync(DEF.S.SAMPLESCENE).StartAsCoroutine();
+        MYSceneManager.Instance.StartSceneAsync(DEF.Scene.SAMPLESCENE).StartAsCoroutine();
 	}
 
 }
