@@ -1,7 +1,10 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using UniRx.Async;
 
-public class GameScene : SceneBase {
-
+public class GameScene : SceneBase
+{
+    public override async UniTask BeforeInitializeScene()
+    {
+        await UniTask.DelayFrame(10);
+    }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Framework
 {
@@ -10,7 +11,7 @@ namespace Framework
 #endif
 		public static void D(string text)
         {
-            Debug.Log(text);
+            Debug.Log($"{DateTime.Now.Millisecond} : {text}");
         }
 #if RELEASE
         [System.Diagnostics.Conditional("DEBUG")]

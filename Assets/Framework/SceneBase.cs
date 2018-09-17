@@ -1,7 +1,17 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using System.Threading;
+using UniRx.Async;
 using UnityEngine;
 
-public class SceneBase : MonoBehaviour {
+public abstract class SceneBase : MonoBehaviour
+{
+    protected readonly CancellationTokenSource cts = new CancellationTokenSource();
+    
+    public abstract UniTask BeforeInitializeScene();
 
+    protected virtual void OnDestroy()
+    {
+        cts.Cancel();
+        cts.Dispose();
+    }
 }
