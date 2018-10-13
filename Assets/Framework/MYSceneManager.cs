@@ -10,26 +10,34 @@ namespace Framework
 {
     public class MYSceneManager : SingletonBase<MYSceneManager>
     {
-
         public async UniTask StartSceneAsync(string sceneName)
         {
+            Log.D($"start scene async {sceneName}");
             await SceneManager.LoadSceneAsync(sceneName);
-            Scene scene = SceneManager.GetActiveScene();
-            Log.D("scene name : " + scene.name + ", isloaded " + scene.isLoaded + ", path " + scene.path);
+            var scene = SceneManager.GetActiveScene();
+
 
             var sceneBase = scene.GetRootGameObjects().Select(g => g.GetComponent<SceneBase>()).FirstOrDefault(s => s != null);
-            if(sceneBase != null)
-            await sceneBase.BeforeInitializeScene();
+            if (sceneBase != null)
+            {
+                sceneBase.SetActive(false);
+                sceneBase.SetupCanvas();
+                await sceneBase.BeforeInitializeScene();
+                sceneBase.SetActive(true);
+                //アニメーションはここかな？
+            }
             else
             {
                 Log.D($"sceneが見つかりません {sceneName}");
             }
+
+            Log.D($"end scene async {sceneName}");
         }
 
         public IObservable<AsyncOperation> AddSceneAsync(string sceneName)
         {
             return SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive)
-                    .AsAsyncOperationObservable();
+                .AsAsyncOperationObservable();
         }
 
         protected override string InstanceName()
@@ -37,5 +45,4 @@ namespace Framework
             return "SceneManager";
         }
     }
-
 }
