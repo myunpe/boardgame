@@ -1,0 +1,6 @@
+Font: 07LightNovelPOP  Pt. Size: 107
+Characters packed: 43/44
+
+Missing Characters
+----------------------------------------
+ID: 160	Hex: A0	Char [ ]
